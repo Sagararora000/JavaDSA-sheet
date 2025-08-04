@@ -1,0 +1,25 @@
+//Chocolate distribution problem , used calculation concept from maximum_subarray
+//TC :  O(n log n) BECAUSE sorting dominates the overall complexity.
+
+class Solution {
+    public int findMinDiff(ArrayList<Integer> arr, int m) {
+         Collections.sort(arr);
+         ArrayList<Integer>new_arr =new ArrayList<>(arr);
+        int j = m-1;
+        int min_value;
+        int max_value;
+        int least_diff = Integer.MAX_VALUE;
+        for(int k = 0;  k < arr.size()-m+1; k++){
+            min_value = arr.get(k);
+            max_value = arr.get(j);
+            int diff = max_value - min_value;
+            
+            if(diff < least_diff){
+                least_diff = diff;
+            }
+            j++;
+        }
+        
+        return least_diff;
+    }
+}
