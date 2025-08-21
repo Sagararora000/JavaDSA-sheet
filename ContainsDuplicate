@@ -12,3 +12,19 @@ class Solution {
         return false;
     }
 }
+
+//optimised aproach using HashSet
+//TC: O(n)
+//Sc: O(n) //for the set in worst case
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+       HashSet<Integer> seen = new HashSet<>();
+       for (int num : nums){
+            if(seen.contains(num)){
+                return true;
+            }
+            seen.add(num);
+       }
+       return false;
+    }
+}
